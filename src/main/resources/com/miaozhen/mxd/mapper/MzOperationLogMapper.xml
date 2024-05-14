@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.miaozhen.mxd.mapper.MzOperationLogMapper">
+  <resultMap id="BaseResultMap" type="com.miaozhen.mxd.entity.MzOperationLog">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="oper_model" jdbcType="VARCHAR" property="operModel" />
+    <result column="oper_type" jdbcType="VARCHAR" property="operType" />
+    <result column="oper_desc" jdbcType="VARCHAR" property="operDesc" />
+    <result column="oper_user" jdbcType="VARCHAR" property="operUser" />
+    <result column="oper_time" jdbcType="TIMESTAMP" property="operTime" />
+    <result column="ip" jdbcType="VARCHAR" property="ip" />
+    <result column="result" jdbcType="VARCHAR" property="result" />
+    <result column="is_delete" jdbcType="VARCHAR" property="isDelete" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="create_user" jdbcType="VARCHAR" property="createUser" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="update_user" jdbcType="VARCHAR" property="updateUser" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, oper_model, oper_type, oper_desc, oper_user, oper_time, ip, result, is_delete, 
+    create_time, create_user, update_time, update_user
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from mz_operation_log
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from mz_operation_log
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.miaozhen.mxd.entity.MzOperationLog">
+    insert into mz_operation_log (id, oper_model, oper_type, 
+      oper_desc, oper_user, oper_time, 
+      ip, result, is_delete, 
+      create_time, create_user, update_time, 
+      update_user)
+    values (#{id,jdbcType=BIGINT}, #{operModel,jdbcType=VARCHAR}, #{operType,jdbcType=VARCHAR}, 
+      #{operDesc,jdbcType=VARCHAR}, #{operUser,jdbcType=VARCHAR}, #{operTime,jdbcType=TIMESTAMP}, 
+      #{ip,jdbcType=VARCHAR}, #{result,jdbcType=VARCHAR}, #{isDelete,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{updateUser,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.miaozhen.mxd.entity.MzOperationLog">
+    insert into mz_operation_log
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="operModel != null">
+        oper_model,
+      </if>
+      <if test="operType != null">
+        oper_type,
+      </if>
+      <if test="operDesc != null">
+        oper_desc,
+      </if>
+      <if test="operUser != null">
+        oper_user,
+      </if>
+      <if test="operTime != null">
+        oper_time,
+      </if>
+      <if test="ip != null">
+        ip,
+      </if>
+      <if test="result != null">
+        result,
+      </if>
+      <if test="isDelete != null">
+        is_delete,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="createUser != null">
+        create_user,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="updateUser != null">
+        update_user,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="operModel != null">
+        #{operModel,jdbcType=VARCHAR},
+      </if>
+      <if test="operType != null">
+        #{operType,jdbcType=VARCHAR},
+      </if>
+      <if test="operDesc != null">
+        #{operDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="operUser != null">
+        #{operUser,jdbcType=VARCHAR},
+      </if>
+      <if test="operTime != null">
+        #{operTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ip != null">
+        #{ip,jdbcType=VARCHAR},
+      </if>
+      <if test="result != null">
+        #{result,jdbcType=VARCHAR},
+      </if>
+      <if test="isDelete != null">
+        #{isDelete,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null">
+        #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUser != null">
+        #{updateUser,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.miaozhen.mxd.entity.MzOperationLog">
+    update mz_operation_log
+    <set>
+      <if test="operModel != null">
+        oper_model = #{operModel,jdbcType=VARCHAR},
+      </if>
+      <if test="operType != null">
+        oper_type = #{operType,jdbcType=VARCHAR},
+      </if>
+      <if test="operDesc != null">
+        oper_desc = #{operDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="operUser != null">
+        oper_user = #{operUser,jdbcType=VARCHAR},
+      </if>
+      <if test="operTime != null">
+        oper_time = #{operTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ip != null">
+        ip = #{ip,jdbcType=VARCHAR},
+      </if>
+      <if test="result != null">
+        result = #{result,jdbcType=VARCHAR},
+      </if>
+      <if test="isDelete != null">
+        is_delete = #{isDelete,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null">
+        create_user = #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUser != null">
+        update_user = #{updateUser,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.miaozhen.mxd.entity.MzOperationLog">
+    update mz_operation_log
+    set oper_model = #{operModel,jdbcType=VARCHAR},
+      oper_type = #{operType,jdbcType=VARCHAR},
+      oper_desc = #{operDesc,jdbcType=VARCHAR},
+      oper_user = #{operUser,jdbcType=VARCHAR},
+      oper_time = #{operTime,jdbcType=TIMESTAMP},
+      ip = #{ip,jdbcType=VARCHAR},
+      result = #{result,jdbcType=VARCHAR},
+      is_delete = #{isDelete,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      update_user = #{updateUser,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
