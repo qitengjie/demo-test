@@ -4,12 +4,14 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.boot.SpringBootConfiguration;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class DemoApplicationTests {
+@SpringBootConfiguration
+public class LogTests {
 
     @Test
     public void contextLoads() {
@@ -19,7 +21,7 @@ public class DemoApplicationTests {
     public void testLoger(){
 
 //		final Logge logger = Logger.getLogger("TestErrOut");
-        final Logger LOG = LoggerFactory.getLogger(DemoApplicationTests.class);
+        final Logger LOG = LoggerFactory.getLogger(LogTests.class);
 
         LOG.debug(" This is debug!!!");
         LOG.info(" This is info!!!");

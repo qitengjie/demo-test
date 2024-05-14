@@ -1,8 +1,12 @@
 package com.springboot.demo;
 
 
+import com.springboot.demo.stream.Users;
+import org.assertj.core.util.Lists;
+
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.Map;
+import java.util.List;
 
 /**
  * @program demo-test
@@ -12,6 +16,7 @@ import java.util.Map;
  */
 public class ObjectToMap {
     public static void main(String[] args) {
+
         Users users = new Users("bbb","男",33,new Date());
 
 //        String value = JSONObject.toJSONString(companyDO);

@@ -1,8 +1,5 @@
 package com.springboot.demo.stream;
 
-import com.springboot.demo.Users;
-
-import javax.swing.text.html.parser.Entity;
 import java.util.*;
 import java.util.stream.Collectors;
 
